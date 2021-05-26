@@ -7,7 +7,6 @@ import swal from 'sweetalert2';
 
 import { UserService } from '../../core/services/user.service';
 import { TypeDocumentService } from '../../core/services/type-document.service';
-import { UserAcademyService } from './../../core/services/user-academy.service';
 
 import {User} from '../../core/model/User';
 import { TypeDocument } from 'src/app/core/model/TypeDocument';
@@ -29,7 +28,7 @@ export class FormComponent implements OnInit {
   userAcademics : UserAcademy[];
   trueAcademi : any;
 
-  constructor(private formBuilder: FormBuilder, private userSer : UserService, private userAcademy : UserAcademyService,
+  constructor(private formBuilder: FormBuilder, private userSer : UserService,
     private router : Router, private activatedRoute : ActivatedRoute, private typeDocuServ:TypeDocumentService) { }
 
     ngOnInit(): void {
@@ -94,14 +93,6 @@ export class FormComponent implements OnInit {
         this.userSer.getCliente(id).subscribe(
           (user)=> this.user = user
         )
-      }
-      if(id){
-        this.userAcademy.getUserAcademy(id).subscribe(userAcademic => {
-          this.userAcademics = userAcademic, this.trueAcademi = true,
-          this.idUser = id;
-          console.log('id',id)
-          console.log(this.userAcademics)
-        })
       }
     })
   }
