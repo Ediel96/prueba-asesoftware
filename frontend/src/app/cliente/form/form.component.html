@@ -38,7 +38,7 @@
         <div class="form-group">
           <label>Tipo de documento</label>
           <!-- <input type="text"  /> -->
-          <select  class="custom-select" formControlName="typeDocument" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.typeDocument.errors }">
+          <select  class="custom-select" formControlName="typeDocument" [compareWith]="compareTech" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.typeDocument.errors }">
             <option *ngFor="let typeDocument of typeDocuments" [ngValue]="typeDocument">{{typeDocument.name}}</option>
           </select>
           <div *ngIf="submitted && f.typeDocument.errors" class="invalid-feedback">

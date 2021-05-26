@@ -1,6 +1,5 @@
 package com.register.user.eddi.controller;
 
-
 import com.register.user.eddi.models.entity.TypeDocument;
 import com.register.user.eddi.models.entity.User;
 import com.register.user.eddi.models.services.UserService;
@@ -40,7 +39,9 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<?> show(@PathVariable Long id) {
         User user = null;
-        Map<String, Object> response = new HashMap<>();
+        Map<String, Object> response =  new HashMap<>();
+
+        System.out.println();
 
 
         try {
@@ -120,6 +121,7 @@ public class UserController {
             userAct.setAndress(user.getAndress());
             userAct.setDateOfBirth(user.getDateOfBirth());
             userAct.setTypeDocument(user.getTypeDocument());
+            userAct.setPhone(user.getPhone());
 
             userUpdate = userService.save(userAct);
 

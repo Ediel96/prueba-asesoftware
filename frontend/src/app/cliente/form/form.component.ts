@@ -97,6 +97,10 @@ export class FormComponent implements OnInit {
     })
   }
 
+  compareTech(t1: User, t2: User): boolean {
+    return t1 && t2 ? t1.typeDocument.id === t2.typeDocument.id : t1 === t2;
+  }
+
   get f() { return this.registerForm.controls; }
 
   onReset() {
